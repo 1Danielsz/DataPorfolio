@@ -1,10 +1,8 @@
 # DataPorfolio
-<<<<<<< HEAD
 
-[Check out myt website](https://venebre.com/)
+
+[Check out my website](https://venebre.com/)
 =======
-[Check out my website](venebre.com)
->>>>>>> master
 
 # Next Stepts
 
