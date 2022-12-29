@@ -13,7 +13,25 @@ var mySwiper = new Swiper('.mySwiper', {
       clickable: true,
     },
     speed: 1000,
+    breakpoints: {
+      // quando a tela tiver um tamanho menor que 1280px
+      1280: {
+        slidesPerView: 3,
+      },
+
+      845: {
+        slidesPerView:2,
+        slidesPerGroup:2,
+      },
+
+      0: {
+        slidesPerView:1,
+        slidesPerGroup:1,
+      },
+
+    },
   });
+  
   
   
 
