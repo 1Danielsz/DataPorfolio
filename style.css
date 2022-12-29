@@ -248,15 +248,22 @@ header {
     border-radius: 2rem;
     color: var(--bg-color);
     text-align: center;
+    margin-top: 3rem;
+
 }
 
 .project-content-card img{
-    width: 22rem;
+    top: 0;
+    position: absolute;
+    width: 100%;
     margin-bottom: 2rem;
+    border-radius: 2rem 2rem 0 0;
+    border: 1px solid var(--text-color);
 }
 
 .project-content-card h2{
     margin-bottom: 2rem;
+    margin-top: 15rem;
 }
 
 .project-content-card p{
@@ -273,10 +280,12 @@ header {
 }
 
 .project-content-card-btn a {
-    background-color: var(--bg-color);
-    padding: 1rem 2rem;
-    color: var(--primary-color);
+    background-color: transparent;
+    padding: 1rem 3rem;
+    border: 1px solid var(--bg-color);
+    color: var(--bg-color);
     border-radius: .5rem;
+    font-size: var(--p-font);
 }
 
 .contact {
