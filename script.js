@@ -17,6 +17,7 @@ var mySwiper = new Swiper('.mySwiper', {
       // quando a tela tiver um tamanho menor que 1280px
       1280: {
         slidesPerView: 3,
+        slidesPerGroup: 3,
       },
 
       845: {
