@@ -10,4 +10,4 @@
 <p>[X] Other pages using HTML & CSS</p>
 <p>[X] Responsive design</p>
 <p>[X] Add Javascript</p>
-<p>[X] Some cool animations</p>
+<p>[ ] Some cool animations</p>
