@@ -266,8 +266,11 @@ header {
 }
 
 .contact-form {
+    display: flex;
+    flex-direction: column;
     position: relative;
     width: 50rem;
+    align-items: center;
 }
 
 .contact-form input {
