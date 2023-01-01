@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+
+    --bg-color : #ffffff;
+    --bg-dark : #231E62;
+    --text-color : #272727;
+    --primary-color : #033a80;
+    --grey-color : rgba(255,255,255,0.25);
+    --card-color : rgb(255, 255, 255);
+
+    --h1-font : 3.2rem;
+    --logo-font : 1.7rem;
+    --h2-font : 1.5rem;
+    --h3-font : 2rem;
+    --p-font : 1rem;
+
+}
+
+h1 {
+    font-size: var(--h1-font);
+}
+
+h2 {
+    font-size: var(--h2-font);
+}
+
+h3 {
+    font-size: var(--h3-font);
+}
+
+p {
+    font-size: var(--p-font);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    overflow-x: hidden;
+}
+
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: var(--bg-color);
+    padding: 1rem 10%;
+    box-shadow: -3px -3px 7px #ffffff73,2px 2px 5px rgba(94, 104, 121, 0.288);
+}
+
+.logo {
+    font-size: var(--logo-font);
+    font-weight: 600;
+    color: var(--text-color);
+    display: flex;
+}
+
+
+main {
+    min-height: calc(100vh - 15rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+main i {
+    font-size: var(--h1-font);
+}
+
+main a {
+    color: var(--text-color);
+    text-decoration: underline;
+}
+
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100vw;
+    height: 15rem;
+    background-color: var(--bg-dark);
+    padding: 2rem 10%;
+}
+
+.footer-icons {
+    color: var(--bg-color);
+    display: flex;
+    gap: 2rem;
+}
+
+.footer-icons a{
+    font-size: var(--logo-font);
+    color: var(--bg-color);
+}
+
+.footer-logo a{
+    font-size: var(--logo-font);
+    color: var(--bg-color);
+}
+
+.footer-copyrigth {
+    color: var(--bg-color);
+    font-size: var(--h3-font);
+}
