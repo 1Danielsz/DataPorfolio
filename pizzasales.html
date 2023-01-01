@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pizza Sales</title>
+
+
+    <link rel="shortcut icon" href="assets/Tab Img.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="css/PizzaSales.css/style.css">
+    <link rel="stylesheet" href="css/PizzaSales.css/responsive.css">
+    <script src="https://kit.fontawesome.com/078f18442c.js" crossorigin="anonymous"></script>
+
+
+
+    
+
+
+</head>
+<body>
+    <!--Navbar-->
+    <header>
+        <a href="main.html" class="logo">Venebre.</a>
+ 
+        <ul class="navbar">
+            <li><a href="main.html">Home</a></li>
+            <li><a href="https://github.com/1Danielsz/SQL-Analysis" target="_blank">Github</a></li>
+            <li><a href="#projects" target="_blank">Youtube</a></li>
+        </ul>
+    </header>
+
+    <!--Main-->
+    <main>
+
+        <div class="container">
+
+           <section class="project-image">
+
+                <img src="assets/PizzaSales/Project Image.png" alt="">
+                <p><a href="https://www.pexels.com/pt-br/foto/fotografia-em-foco-raso-de-varias-pizzas-1566837/" target="_blank">Image by pexels</a></p>
+           
+            </section>
+
+           <section class="project-title">
+
+               <h1>Case Study : Pizza Sales</h1>
+               <h3>This project is a challenge offered by <a href="https://www.mavenanalytics.io/" target="_blank">Maven Analytics</a> and consists of conducting a data analysis of a year's worth of sales from a fictitious pizza place. The data includes the date and time of each order placed and the details of the pizzas served, such as the type, size, quantity, price, and ingredients. Analyzing this data can help us understand sales patterns, consumer trends, and other valuable information about the business. In this project, i will use SQL for data preparation and cleaning. Then, i will use Power BI to efficiently and intuitively visualize the data.
+               </h3>
+               <p><span>Note</span> If you want access to the raw data and PowerBi file used in this project, just click the GitHub icon and follow the instructions.</p>
+           
+            </section>
+
+           <section class="project-content">
+
+                <div class="project-content-data">
+
+                    <h2>Get to know the data</h2>
+    
+                    <img src="assets/PizzaSales/PizzaSales ERD.png" alt="">
+
+                </div>
+
+                <div class="project-content-preparation">
+
+                    <h2>Preparation Process</h2>
+                    <h3>As we can see in the orders table, we have both the date and time of each order. To create a new single field and change the data type to timestamp, we will use the following SQL query:</h3>
+
+                    <div class="code-box">
+
+                        <p>ALTER TABLE orders <br> ADD COLUMN datet TIMESTAMP NOT NULL</p>
+
+                    </div>
+
+                    <div class="code-box">
+
+                        <p>UPDATE orders <br> SET datet = STR_TO_DATE(CONCAT(date, ' ', time), '%Y-%m-%d %T')</p>
+
+                    </div>
+
+                    <h3>Now we need to get rid of the date and time columns, as they are no longer needed.</h3>
+
+                    <div class="code-box">
+
+                        <p>ALTER TABLE orders <br>DROP COLUMN date, <br>DROP COLUMN time</p>
+
+                    </div>
+
+                    <div class="code-box">
+
+                        <p>SELECT * <br> FROM orders <br>LIMIT 2</p>
+
+                    </div>
+
+
+                    <h3>Looks great, let's move on. Honestly, I don't think we need the ingredients column from pizza_types table, so let's delete it
+                    </h3>
+
+                    <div class="code-box">
+
+                        <p>ALTER TABLE pizza_type <br> DROP COLUMN ingredients</p>
+
+                    </div>
+
+                    <h3>We're going to add a new column subtotal on order_details table</h3>
+
+                    <div class="code-box">
+
+                        <p>ALTER TABLE order_details <br> ADD COLUMN subtotal DECIMAL(10,2) NOT NULL;</p>
+
+                    </div>
+
+                    <div class="code-box">
+
+                        <p>UPDATE order_details o <br>
+                            INNER JOIN pizzas p <br>
+                            ON o.pizza_id = p.pizza_id <br>
+                            SET o.subtotal = o.quantity * p.price;</p>
+
+                    </div>
+
+                    <h3>Everything looks good here, let's move on to the data cleaning process</h3>
+
+
+                </div>
+
+                <div class="project-content-cleaning">
+
+                    <h2>Cleaning Process</h2>
+                    <h3>We can start by checking for and handling null, incorrect, or missing values in the data. We will check for undesirable values in the quantity column of the order_details table and the price column of the pizzas table. This may involve identifying and correcting invalid or missing values, or replacing them with appropriate defaults. By ensuring the data in these columns is accurate and consistent, we can make it easier to analyze and draw insights from it.</h3>
+
+                    <div class="code-box">
+
+                        <p>SELECT * <br> FROM order_details <br> WHERE quantity IS NULL OR quantity < 0</p>
+
+                    </div>
+
+                    <div class="code-box">
+
+                        <p>SELECT * <br> FROM pizzas <br> WHERE price IS NULL OR price < 0</p>
+
+                    </div>
+
+                    <h3>Great, we have completed the data preparation and cleaning phase. While there may be other ways to ensure the quality of the data, in this case I am confident that it is all correct. </h3>
+                    <h3>I could also have done all of this data preparation and cleaning process within Power BI, but I prefer to use SQL as it is a powerful tool for data manipulation, especially in more complex cases. Plus, using SQL allows me to practice and improve my skills. However, using Power BI for data preparation and cleaning can also be a convenient and efficient option, depending on the needs of the project. Now, here is the final dashboard.</h3>
+                    <p> <span>Note:</span> If you want to see the process of creating the dashboard (if available), simply click on the 'YouTube' link in the top right corner.</p>
+
+                </div>
+
+                <iframe title="PizzaSalesDashboard - Home" width="600" height="373.5" src="https://app.powerbi.com/view?r=eyJrIjoiMTk5MGY4M2UtOGI2OS00NDJmLTkyNmMtMjQxNjllZGQxODI3IiwidCI6IjY4NWM2YTIxLTY0NmQtNDZhYi1hNDhhLWQzOGZmMDEwZjc1YSIsImMiOjN9" frameborder="0" allowFullScreen="true"></iframe>
+
+
+           </section>
+
+
+        </div>
+
+    </main>
+
+    <footer>
+
+        <div class="footer-icons">
+
+            <a href="https://www.linkedin.com/in/daniel-lira-237085202/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://github.com/1Danielsz/DataProjects" target="_blank"><i class="fa-brands fa-github"></i></a>
+            <a href="https://medium.com/@danielllira2021" target="_blank"><i class="fa-brands fa-medium"></i></a>
+            <a href="https://www.instagram.com/1daniellira/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+
+        </div>
+
+        <div class="footer-logo">
+
+            <a href="main.html">Venebre.</a>
+
+        </div>
+
+        <div class="footer-copyrigth">
+
+            <p>@ 2022 Venebre. All rights reserved.</p>
+
+        </div>
+
+    </footer>
+
+
+    <div class="fixed-icons">
+
+        <a href="https://www.linkedin.com/in/daniel-lira-237085202/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="https://github.com/1Danielsz/DataProjects" target="_blank"><i class="fa-brands fa-github"></i></a>
+        <a href="https://medium.com/@danielllira2021" target="_blank"><i class="fa-brands fa-medium"></i></a>
+        <a href="https://www.instagram.com/1daniellira/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+
+    </div>
+
+
+    
+
+</body>
+</html>

@@ -50,6 +50,7 @@ html {
 body {
     background-color: var(--bg-color);
     color: var(--text-color);
+    overflow-x: hidden;
 }
 
 section {
@@ -449,4 +450,34 @@ header {
     color: var(--bg-dark);
 }
   
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100vw;
+    height: 15rem;
+    background-color: var(--bg-color);
+    padding: 2rem 10%;
+}
+
+.footer-icons {
+    color: var(--text-color);
+    display: flex;
+    gap: 2rem;
+}
+
+.footer-icons a{
+    font-size: var(--logo-font);
+    color: var(--text-color);
+}
+
+.footer-logo a{
+    font-size: var(--logo-font);
+    color: var(--text-color);
+}
+
+.footer-copyrigth {
+    color: var(--text-color);
+    font-size: var(--h3-font);
+}
   
