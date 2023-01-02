@@ -2,7 +2,7 @@
 @media (max-width: 1367px) {
     
     .card {
-        height: 70%;
+        width: 40rem;
     }
 
     .contact-form input,
@@ -50,6 +50,22 @@
         height: 80%;
     } 
 
+    footer {
+        flex-direction: column;
+    }
+
+    .footer-logo {
+        order: 0;
+    }
+
+    .footer-icons {
+        order: 1;
+    }
+
+    .footer-copyrigth {
+        order: 3;
+    }
+
 }
 
 @media (max-width: 599px) {
@@ -61,6 +77,11 @@
         align-items: center;
         justify-content: center;
         justify-items: center;
+    }
+
+
+    section {
+        padding: 5 rem 0;
     }
 
     .home {
